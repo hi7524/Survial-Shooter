@@ -1859,6 +1859,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1075580020894098271, guid: ec5fa612aac9cf64d94f63aa3509d21c, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3687494016889432973, guid: ec5fa612aac9cf64d94f63aa3509d21c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1903,6 +1907,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombunny
       objectReference: {fileID: 0}
+    - target: {fileID: 6330926554508041190, guid: ec5fa612aac9cf64d94f63aa3509d21c, type: 3}
+      propertyPath: attackDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330926554508041190, guid: ec5fa612aac9cf64d94f63aa3509d21c, type: 3}
+      propertyPath: attackInterval
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1916,6 +1928,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 148127036958437598, guid: 82410f813248a5040ac7e6a64a35ddf8, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573558356907998395, guid: 82410f813248a5040ac7e6a64a35ddf8, type: 3}
+      propertyPath: attackDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573558356907998395, guid: 82410f813248a5040ac7e6a64a35ddf8, type: 3}
+      propertyPath: attackInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2615901097882588539, guid: 82410f813248a5040ac7e6a64a35ddf8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

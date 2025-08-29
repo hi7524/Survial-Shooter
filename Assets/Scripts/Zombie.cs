@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.Splines;
 
 public class Zombie : Entity
 {
@@ -45,6 +47,9 @@ public class Zombie : Entity
     }
 
     [SerializeField] ParticleSystem hitParticle;
+    [SerializeField] float attackDistance;
+    [SerializeField] float attackInterval;
+    private float lastAttackTime;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -85,6 +90,7 @@ public class Zombie : Entity
                 break;
 
             case Status.Attack:
+                UpdateAttack();
                 break;
 
             case Status.Dead:
@@ -104,6 +110,32 @@ public class Zombie : Entity
     private void UpdateTrace()
     {
         agent.SetDestination(target.position);
+
+        if (Vector3.Distance(transform.position, target.position) <= attackDistance)
+        {
+            State = Status.Attack;
+        }
+    }
+
+    private void UpdateAttack()
+    {
+        if (target == null)
+        {
+            State = Status.Idle;
+            return;
+        }
+
+        if (Vector3.Distance(transform.position, target.position) > attackDistance)
+        {
+            State = Status.Trace;
+        }
+
+        if (Time.time >= attackInterval + lastAttackTime)
+        {
+            lastAttackTime = Time.time;
+
+            target.GetComponent<IDamagable>().OnDamage(10, Vector3.zero, Vector3.zero);
+        }
     }
 
     public override void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal)
