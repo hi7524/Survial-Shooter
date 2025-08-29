@@ -2,6 +2,7 @@
 
 public class PlayerHealth : Entity 
 {
+    [Space()]
     [SerializeField] private UIManager uiManager;
 
 
@@ -23,6 +24,7 @@ public class PlayerHealth : Entity
         base.OnDamage(damage, hitPos, hitNormal);
 
         uiManager.SetHealthBarValue(health / maxHealth);
+        uiManager.PlayDamagedEffect();
     }
 
     protected override void Die()
