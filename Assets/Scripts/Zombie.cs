@@ -44,6 +44,8 @@ public class Zombie : Entity
         }
     }
 
+    [SerializeField] ParticleSystem hitParticle;
+
     private NavMeshAgent agent;
     private Animator animator;
     private CapsuleCollider capsuleCollider;
@@ -104,9 +106,13 @@ public class Zombie : Entity
         agent.SetDestination(target.position);
     }
 
-    public override void OnDamage(int damage)
+    public override void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal)
     {
-        base.OnDamage(damage);
+        base.OnDamage(damage, hitPos, hitNormal);
+
+        hitParticle.transform.position = hitPos;
+        hitParticle.transform.forward = hitNormal;
+        hitParticle.Play();
     }
 
     protected override void Die()

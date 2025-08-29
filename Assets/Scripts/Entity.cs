@@ -15,7 +15,7 @@ public class Entity : MonoBehaviour, IDamagable
         health = maxHealth;    
     }
 
-    public virtual void OnDamage(int damage)
+    public virtual void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal)
     {
         health -= damage;
 
@@ -34,5 +34,10 @@ public class Entity : MonoBehaviour, IDamagable
         {
             OnDeath();
         }
+    }
+
+    public void OnDamage(int damage, System.Numerics.Vector3 hitPos)
+    {
+        throw new NotImplementedException();
     }
 }

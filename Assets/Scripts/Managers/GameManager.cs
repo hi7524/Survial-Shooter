@@ -1,16 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private int score;
 
-    // Update is called once per frame
-    void Update()
+
+    public void AddScore(int amount)
     {
-        
+        score += amount;
     }
 }
