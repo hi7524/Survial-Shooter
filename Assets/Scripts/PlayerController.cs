@@ -35,16 +35,15 @@ public class PlayerController : MonoBehaviour
         Vector3 camRight = cam.transform.right; // X축 방향 (빨간 축)
 
         // Y축 제거 및 정규화
+        // 카메라에 롤(삐딱하게 기운 회전)이 있을 때도 정확히 직교하도록 만드는 방법
         camForward.y = 0f;
         camRight.y = 0f;
         camForward.Normalize();
         camRight.Normalize();
 
-        // 입력 방향 계산 (직관적인 매핑)
         Vector3 moveDir = camForward * input.MoveV + camRight * input.MoveH;
         moveDir.Normalize();
 
-        // 월드 좌표계 기준 이동
         Vector3 movement = moveDir * speed * Time.deltaTime;
         transform.position += movement;
 
