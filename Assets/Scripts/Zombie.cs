@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class Zombie : MonoBehaviour
+public class Zombie : Entity
 {
     private NavMeshAgent agent;
     private Animator animator;
@@ -26,5 +26,17 @@ public class Zombie : MonoBehaviour
         {
             agent.SetDestination(target.position);
         }
+    }
+
+
+    public override void OnDamage(int damage)
+    {
+        base.OnDamage(damage);
+        Debug.Log("데미지 입음");
+    }
+
+    protected override void Die()
+    {
+        base.Die();
     }
 }

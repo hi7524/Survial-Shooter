@@ -16,4 +16,5 @@ public static class InputActions
 {
     public static readonly string vAxis = "Vertical";
     public static readonly string hAxis = "Horizontal";
+    public static readonly string fireBtn = "Fire1";
 }
