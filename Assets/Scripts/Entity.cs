@@ -5,12 +5,12 @@ public class Entity : MonoBehaviour, IDamagable
 {
     [SerializeField] protected float maxHealth = 100f;
     protected float health;
-    protected bool isAlive;
+    protected bool isDead;
 
     public event Action OnDeath;
 
 
-    public virtual void OnEnable()
+    protected virtual void OnEnable()
     {
         health = maxHealth;    
     }
@@ -19,7 +19,7 @@ public class Entity : MonoBehaviour, IDamagable
     {
         health -= damage;
 
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die();
         }
@@ -28,7 +28,7 @@ public class Entity : MonoBehaviour, IDamagable
     protected virtual void Die()
     {
         health = 0;
-        isAlive = false;
+        isDead = true;
 
         if (OnDeath != null)
         {

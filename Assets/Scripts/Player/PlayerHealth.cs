@@ -5,7 +5,7 @@ public class PlayerHealth : Entity
     [SerializeField] private UIManager uiManager;
 
 
-    public override void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
     }

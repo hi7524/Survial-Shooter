@@ -10,6 +10,6 @@ public class PlayerInput : MonoBehaviour
     {
         MoveV = Input.GetAxis(InputActions.vAxis);
         MoveH = Input.GetAxis(InputActions.hAxis);
-        Fire = Input.GetButton(InputActions.fireBtn);
+        Fire = Input.GetButtonDown(InputActions.fireBtn); // 테스트 위해 임시로 Down으로
     }
 }
