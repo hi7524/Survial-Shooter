@@ -21,10 +21,11 @@ public class PlayerController : MonoBehaviour
 
     public void Movement()
     {
+        // 이동
         Vector3 movement = new Vector3(input.MoveH, 0, input.MoveV) * speed * Time.deltaTime;
-
         transform.Translate(movement);
 
+        // 애니메이션
         if (input.MoveH != 0 || input.MoveV != 0)
         {
             animator.SetBool(AnimParams.MoveHash, true);
