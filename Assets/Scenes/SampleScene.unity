@@ -4041,10 +4041,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2089986582}
   spawnInterval: 2
-  zombiePrfs:
-  - {fileID: 1573558356907998395, guid: 82410f813248a5040ac7e6a64a35ddf8, type: 3}
-  - {fileID: 6330926554508041190, guid: ec5fa612aac9cf64d94f63aa3509d21c, type: 3}
-  - {fileID: 6510391221681834776, guid: 0baff932f6cd4b64ba10384550b55417, type: 3}
+  bunnyP: 50
+  bearP: 40
+  hellP: 10
   spawnTrans:
   - {fileID: 1349465260}
   - {fileID: 228146694}

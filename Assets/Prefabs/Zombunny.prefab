@@ -246,6 +246,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  data: {fileID: 11400000, guid: fe13efa8bf43b2a4ebbf1041df27b0d1, type: 2}
   hitParticle: {fileID: 2577099458504530227}
-  attackDistance: 1
-  attackInterval: 1

@@ -3,9 +3,15 @@
 public class ZombieSpawner : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
-    [Space]
+
+    [Header("Zombie")]
     [SerializeField] float spawnInterval = 1.0f;
     [SerializeField] Transform[] spawnTrans;
+
+    [Header("Zombie Type Probability")]
+    [SerializeField] int bunnyP;
+    [SerializeField] int bearP;
+    [SerializeField] int hellP;
 
     private float lastSpawnTime = 0f;
 
@@ -33,7 +39,22 @@ public class ZombieSpawner : MonoBehaviour
         Vector3 spawnPos = spawnTrans[random].position;
 
         // 랜덤 종류 설정
-        //int randomIdx = Random.Range(0, zombiePrfs.Length);
-        zombiePool.Spawn(ZombieType.Bear, spawnPos, Quaternion.identity);
+        int randomIdx = Random.Range(0, 100);
+        ZombieType type;
+
+        if (randomIdx < bunnyP)
+        {
+            type = ZombieType.Bunny;
+        }
+        else if (randomIdx < bunnyP + bearP)
+        {
+            type = ZombieType.Bear;
+        }
+        else
+        {
+            type = ZombieType.Hell;
+        }
+
+        zombiePool.Spawn(type, spawnPos, Quaternion.identity);
     }
 }

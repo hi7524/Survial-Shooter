@@ -179,9 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  data: {fileID: 11400000, guid: 8b2d3d7b97959fb42a7bb98249173f8f, type: 2}
   hitParticle: {fileID: 7015953069345903863}
-  attackDistance: 1
-  attackInterval: 1
 --- !u!1001 &7015953069326371639
 PrefabInstance:
   m_ObjectHideFlags: 0

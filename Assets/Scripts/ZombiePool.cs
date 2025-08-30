@@ -46,7 +46,7 @@ public class ZombiePool : MonoBehaviour
                 maxSize,
                 onCreate: z => 
                 { 
-                    z.OnDeath += () => gameManager.AddScore(100);
+                    z.OnDeath += () => gameManager.AddScore(z.score);
                     z.DisableEvent += () => Despawn(type, z);
                 });
         }

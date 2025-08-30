@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Zombie : Entity
 {
@@ -43,9 +44,11 @@ public class Zombie : Entity
         }
     }
 
+    [SerializeField] ZombieData data;
     [SerializeField] ParticleSystem hitParticle;
-    [SerializeField] float attackDistance;
-    [SerializeField] float attackInterval;
+
+    public int score { get { return data.addScore; } }
+
     private float lastAttackTime;
 
     private NavMeshAgent agent;
@@ -64,14 +67,14 @@ public class Zombie : Entity
 
     protected override void OnEnable()
     {
+        maxHealth = data.maxHealth;
         base.OnEnable();
+
+        target = GameObject.FindGameObjectWithTag(Tags.Player).transform;
+        State = Status.Idle;
+
         capsuleCollider.enabled = true;
         agent.enabled = true;
-    }
-
-    private void Start()
-    {
-        target = GameObject.FindGameObjectWithTag(Tags.Player).transform;
     }
 
     private void Update()
@@ -108,7 +111,7 @@ public class Zombie : Entity
     {
         agent.SetDestination(target.position);
 
-        if (Vector3.Distance(transform.position, target.position) <= attackDistance)
+        if (Vector3.Distance(transform.position, target.position) <= data.attackDistance)
         {
             State = Status.Attack;
         }
@@ -122,12 +125,12 @@ public class Zombie : Entity
             return;
         }
 
-        if (Vector3.Distance(transform.position, target.position) > attackDistance)
+        if (Vector3.Distance(transform.position, target.position) > data.attackDistance)
         {
             State = Status.Trace;
         }
 
-        if (Time.time >= attackInterval + lastAttackTime)
+        if (Time.time >= data.attackInterval + lastAttackTime)
         {
             lastAttackTime = Time.time;
 

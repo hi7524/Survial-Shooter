@@ -13,7 +13,8 @@ public class Entity : MonoBehaviour, IDamagable
 
     protected virtual void OnEnable()
     {
-        health = maxHealth;    
+        health = maxHealth;
+        isDead = false;
     }
 
     public virtual void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal)
