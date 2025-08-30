@@ -1,6 +1,8 @@
-using UnityEngine;
 using System;
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
+using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class FloatingText : MonoBehaviour
 {
@@ -9,12 +11,16 @@ public class FloatingText : MonoBehaviour
     public event Action<FloatingText> OnReturnToPool;
 
     private TextMesh textMesh;
+    private Animator animator;
 
     private Camera cam;
+
+    string defaultState = "FloatingText";
 
     private void Awake()
     {
         textMesh = GetComponent<TextMesh>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -22,7 +28,14 @@ public class FloatingText : MonoBehaviour
         cam = Camera.main;
     }
 
-    public void ShowDamage(int damage, Color color)
+    void OnEnable()
+    {
+        animator.Rebind();
+        animator.Update(0f);
+        animator.Play(defaultState, 0, 0f);
+    }
+
+    public void ShowDamage(int damage, bool isCritical)
     {
         StopAllCoroutines();
 
@@ -30,7 +43,24 @@ public class FloatingText : MonoBehaviour
             transform.forward = Camera.main.transform.forward;
 
         textMesh.text = damage.ToString();
+        TextSetting(isCritical); // 치명타 여부에 따른 설정값
         StartCoroutine(ReturnToPoolAfterDelay());
+    }
+
+    public void TextSetting(bool isCritical)
+    {
+        if (isCritical)
+        {
+
+            textMesh.color = Color.red;
+            //animator.SetTrigger("Critical");
+        }
+        else
+        {
+            textMesh.color = Color.white;
+        }
+
+        animator.SetBool("isCritical", isCritical);
     }
 
     private IEnumerator ReturnToPoolAfterDelay()

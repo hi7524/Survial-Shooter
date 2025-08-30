@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour, IDamagable
         isDead = false;
     }
 
-    public virtual void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal)
+    public virtual void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal, bool isCritical = false)
     {
         health -= damage;
 

@@ -142,7 +142,7 @@ public class Zombie : Entity
         transform.LookAt(lookAt);
     }
 
-    public override void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal)
+    public override void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal, bool isCritical)
     {
         base.OnDamage(damage, hitPos, hitNormal);
 
@@ -150,7 +150,7 @@ public class Zombie : Entity
         hitParticle.transform.forward = hitNormal;
         hitParticle.Play();
 
-        FloatingTextBus.Show(hitPos + hitNormal * 0.02f, damage, Color.red);
+        FloatingTextBus.Show(hitPos + hitNormal * 0.02f, damage, isCritical);
     }
 
     protected override void Die()

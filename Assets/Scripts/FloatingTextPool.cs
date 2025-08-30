@@ -6,11 +6,11 @@ using UnityEngine;
 // 발행 측(어디서든 호출 가능)
 public static class FloatingTextBus
 {
-    public static event Action<Vector3, int, Color> OnRequest;
+    public static event Action<Vector3, int, bool> OnRequest;
 
     // 다른 곳에서 Show 호출하면 OnRequest에 담겨있는 실행
-    public static void Show(Vector3 worldPos, int damg, Color color)
-        => OnRequest?.Invoke(worldPos, damg, color);
+    public static void Show(Vector3 worldPos, int damg, bool isCritical)
+        => OnRequest?.Invoke(worldPos, damg, isCritical);
 }
 
 public class FloatingTextPool : MonoBehaviour
@@ -45,7 +45,7 @@ public class FloatingTextPool : MonoBehaviour
     }
 
     // 이벤트 버스로부터 요청을 받아 실제 스폰 처리
-    private void SpawnText(Vector3 pos, int damage, Color color)
+    private void SpawnText(Vector3 pos, int damage, bool isCritical)
     {
         var ft = pool.Get();
 
@@ -54,7 +54,7 @@ public class FloatingTextPool : MonoBehaviour
 
         ft.transform.position = pos;
         ft.gameObject.SetActive(true);
-        ft.ShowDamage(damage, Color.red);
+        ft.ShowDamage(damage, isCritical);
     }
 
     private void ReturnToPool(FloatingText ft)

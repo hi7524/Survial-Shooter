@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private AudioClip fireClip;
 
     private float lastFiredTime;
+    private int fireDamage;
 
     private AudioSource audioSouce;
     private LineRenderer lineRenderer;
@@ -33,7 +34,7 @@ public class Gun : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
-    public void Fire()
+    public void Fire(bool isCritical)
     {
         if (cam == null) 
             return;
@@ -41,12 +42,18 @@ public class Gun : MonoBehaviour
         if (Time.time >= lastFiredTime + fireInterval)
         {
             lastFiredTime = Time.time;
-            Vector3 hitPosition = GetHitPos();
+
+            if (isCritical)
+                fireDamage = damage + 20;
+            else
+                fireDamage = damage;
+
+            Vector3 hitPosition = GetHitPos(isCritical);
             StartCoroutine(FireEffect(hitPosition));
         }
     }
 
-    private Vector3 GetHitPos()
+    private Vector3 GetHitPos(bool isCritical)
     {
         Vector3 fireDir = firePos.forward;
 
@@ -56,7 +63,7 @@ public class Gun : MonoBehaviour
             var target = fireHit.collider.GetComponent<IDamagable>();
             if (target != null)
             {
-                target.OnDamage(damage, fireHit.point, fireHit.normal);
+                target.OnDamage(fireDamage, fireHit.point, fireHit.normal, isCritical);
             }
             return fireHit.point;
         }
