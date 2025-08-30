@@ -98,20 +98,8 @@ MonoBehaviour:
     IsBackgroundRecursive: 0
     IsHidden: 0
   - Type: 0
-    Key: Resources
-    Ordinal: 7
-    Priority: 0
-    IconType: 2140
-    SmallIcon: {fileID: 0}
-    LargeIcon: {fileID: 0}
-    IsIconRecursive: 0
-    BackgroundType: 0
-    BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
-    IsHidden: 0
-  - Type: 0
     Key: Scripts
-    Ordinal: 8
+    Ordinal: 7
     Priority: 0
     IconType: 240
     SmallIcon: {fileID: 0}
@@ -122,20 +110,8 @@ MonoBehaviour:
     IsBackgroundRecursive: 0
     IsHidden: 0
   - Type: 0
-    Key: Shaders
-    Ordinal: 9
-    Priority: 0
-    IconType: 2170
-    SmallIcon: {fileID: 0}
-    LargeIcon: {fileID: 0}
-    IsIconRecursive: 0
-    BackgroundType: 0
-    BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
-    IsHidden: 0
-  - Type: 0
     Key: Terrains
-    Ordinal: 10
+    Ordinal: 8
     Priority: 0
     IconType: 2180
     SmallIcon: {fileID: 0}
@@ -147,7 +123,7 @@ MonoBehaviour:
     IsHidden: 0
   - Type: 0
     Key: Physics
-    Ordinal: 11
+    Ordinal: 9
     Priority: 0
     IconType: 2090
     SmallIcon: {fileID: 0}
@@ -159,7 +135,7 @@ MonoBehaviour:
     IsHidden: 0
   - Type: 0
     Key: Flares
-    Ordinal: 12
+    Ordinal: 10
     Priority: 0
     IconType: 2050
     SmallIcon: {fileID: 0}
@@ -171,7 +147,7 @@ MonoBehaviour:
     IsHidden: 0
   - Type: 0
     Key: Android
-    Ordinal: 13
+    Ordinal: 11
     Priority: 0
     IconType: 3000
     SmallIcon: {fileID: 0}
@@ -183,7 +159,7 @@ MonoBehaviour:
     IsHidden: 0
   - Type: 0
     Key: iOS
-    Ordinal: 14
+    Ordinal: 12
     Priority: 0
     IconType: 3010
     SmallIcon: {fileID: 0}
@@ -195,7 +171,7 @@ MonoBehaviour:
     IsHidden: 0
   - Type: 0
     Key: Windows
-    Ordinal: 15
+    Ordinal: 13
     Priority: 0
     IconType: 3040
     SmallIcon: {fileID: 0}
@@ -207,7 +183,7 @@ MonoBehaviour:
     IsHidden: 0
   - Type: 0
     Key: Mac
-    Ordinal: 16
+    Ordinal: 14
     Priority: 0
     IconType: 3020
     SmallIcon: {fileID: 0}
@@ -219,7 +195,7 @@ MonoBehaviour:
     IsHidden: 0
   - Type: 0
     Key: WebGL
-    Ordinal: 17
+    Ordinal: 15
     Priority: 0
     IconType: 3030
     SmallIcon: {fileID: 0}

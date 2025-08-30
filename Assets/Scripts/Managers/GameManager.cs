@@ -5,12 +5,12 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
 
     private int score;
-    private bool pause;
+    public bool IsPaused { get; private set; }
 
 
     private void Awake()
     {
-        pause = false;
+        IsPaused = false;
     }
 
     private void Start()
@@ -26,11 +26,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
     {
-        pause = !pause;
+        IsPaused = !IsPaused;
 
-        if (pause)
+        if (IsPaused)
         {
             Time.timeScale = 0;
             uiManager.SetActivePauseUI(true);

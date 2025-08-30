@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem.HID;
-using UnityEngine.Splines;
 
 public class Zombie : Entity
 {
@@ -39,8 +38,6 @@ public class Zombie : Entity
                 case Status.Dead:
                     agent.isStopped = true;
                     animator.SetTrigger(AnimParams.DieHash);
-                    capsuleCollider.enabled = false;
-                    agent.enabled = false;
                     break;
             }
         }
@@ -151,5 +148,19 @@ public class Zombie : Entity
     {
         base.Die();
         State = Status.Dead;
+    }
+
+    public void StartSinking()
+    {
+        capsuleCollider.enabled = false;
+        agent.enabled = false;
+
+        Invoke("Return", 1f);
+    }
+
+    // 풀로 반환하기 구현할 것
+    public void Return()
+    {
+        gameObject.SetActive(false);
     }
 }

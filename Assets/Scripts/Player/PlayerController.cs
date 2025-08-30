@@ -2,6 +2,8 @@
 
 public class PlayerController : MonoBehaviour
 {
+    public GameManager gameManager;
+
     [SerializeField] private float speed;
 
     private Animator animator;
@@ -23,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
+        if (gameManager.IsPaused)
+            return;
+
         Movement();
         Rotation();
     }
