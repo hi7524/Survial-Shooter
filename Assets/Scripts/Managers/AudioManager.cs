@@ -13,9 +13,6 @@ public class AudioManager : MonoBehaviour
     private float bgmVolume;
     private float sfxVolume;
 
-    string bgmName = "musicVol";
-    string sfxName = "sfxVol";
-
 
     public void Start()
     {
@@ -32,10 +29,11 @@ public class AudioManager : MonoBehaviour
         if (muteToggle.isOn)
             return;
 
-        audioMixer.SetFloat(bgmName, Mathf.Log10(bgmVolume) * 20);
+        audioMixer.SetFloat(AudioMixerParams.Bgm, Mathf.Log10(bgmVolume) * 20);
+        // 데시벨로 변경하기위함
 
         if (bgmVolume <= 0.001f)
-            audioMixer.SetFloat(bgmName, -80);
+            audioMixer.SetFloat(AudioMixerParams.Bgm, -80);
     }
 
     public void SfxAudioControl()
@@ -45,23 +43,23 @@ public class AudioManager : MonoBehaviour
         if (muteToggle.isOn)
             return;
 
-        audioMixer.SetFloat(sfxName, Mathf.Log10(sfxVolume) * 20);
+        audioMixer.SetFloat(AudioMixerParams.Sfx, Mathf.Log10(sfxVolume) * 20);
 
         if (sfxVolume <= 0.001f)
-            audioMixer.SetFloat(sfxName, -80);
+            audioMixer.SetFloat(AudioMixerParams.Sfx, -80);
     }
 
     public void ToggleSound()
     {
         if (muteToggle.isOn)
         {
-            audioMixer.SetFloat(bgmName, -80);
-            audioMixer.SetFloat(sfxName, -80);
+            audioMixer.SetFloat(AudioMixerParams.Bgm, -80);
+            audioMixer.SetFloat(AudioMixerParams.Sfx, -80);
         }
         else
         {
-            audioMixer.SetFloat(bgmName, Mathf.Log10(bgmVolume) * 20);
-            audioMixer.SetFloat(sfxName, Mathf.Log10(sfxVolume) * 20);
+            audioMixer.SetFloat(AudioMixerParams.Bgm, Mathf.Log10(bgmVolume) * 20);
+            audioMixer.SetFloat(AudioMixerParams.Sfx, Mathf.Log10(sfxVolume) * 20);
         }
     }
 
