@@ -429,8 +429,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 103286, guid: 149d6dcc67e8d1240bbc0dd6ddf0c1bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103286, guid: 149d6dcc67e8d1240bbc0dd6ddf0c1bd, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 115086, guid: 149d6dcc67e8d1240bbc0dd6ddf0c1bd, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 115086, guid: 149d6dcc67e8d1240bbc0dd6ddf0c1bd, type: 3}
       propertyPath: m_IsActive
@@ -2442,8 +2450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 9}
+  m_SizeDelta: {x: 0, y: 17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1172911117
 MonoBehaviour:
@@ -2470,7 +2478,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.469
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2611,7 +2619,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.469
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2633,8 +2641,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100.03998, y: 15.539978}
-  m_SizeDelta: {x: 160, y: 12.48}
+  m_AnchoredPosition: {x: 120, y: 25}
+  m_SizeDelta: {x: 188.65, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1315184402
 GameObject:
@@ -2826,10 +2834,10 @@ RectTransform:
   - {fileID: 1172911116}
   m_Father: {fileID: 1243839484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1449346232
 GameObject:
@@ -4041,15 +4049,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2089986582}
   spawnInterval: 2
-  bunnyP: 50
-  bearP: 40
-  hellP: 10
   spawnTrans:
   - {fileID: 1349465260}
   - {fileID: 228146694}
   - {fileID: 247151785}
   - {fileID: 682564658}
   - {fileID: 1649072350}
+  bunnyP: 50
+  bearP: 40
+  hellP: 10
 --- !u!114 &1673621771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4471,7 +4479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.039215688}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4996,6 +5004,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 2089986582}
+    - target: {fileID: 2622436324573780507, guid: bd419c0e5c5bc6946ab14c302b1574ee, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7567215175130451784, guid: bd419c0e5c5bc6946ab14c302b1574ee, type: 3}
       propertyPath: gameManager
       value: 

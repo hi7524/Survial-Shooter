@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
     public GameManager gameManager;
 
     [SerializeField] private float speed;
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] float rotateStopDistance = 0.2f;
 
     private Animator animator;
     private PlayerInput input;
@@ -65,15 +67,19 @@ public class PlayerController : MonoBehaviour
 
     public void Rotation()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000f, groundMask))
         {
             Vector3 targetPos = hit.point;
             targetPos.y = transform.position.y;
 
-            transform.LookAt(targetPos);
+            if (Vector3.Distance(targetPos, transform.position) > rotateStopDistance)
+            {
+                transform.LookAt(targetPos);
+            }
         }
+
+        // Ray가 자신의 콜라이더를 맞아서 스스로의 Transform.Position을 바라보려다 떨림 현상 발생
+        // -> 때문에 너무 가까운 점은 회전하지 않고, LayerMask를 통해 필터링하여 바닥만 찍도록 할 것
     }
 }
