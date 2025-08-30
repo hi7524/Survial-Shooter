@@ -19,14 +19,6 @@ public class PlayerHealth : Entity
         base.OnEnable();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OnDamage(10, Vector3.zero, Vector3.zero);
-        }
-    }
-
     public override void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal)
     {
         base.OnDamage(damage, hitPos, hitNormal);

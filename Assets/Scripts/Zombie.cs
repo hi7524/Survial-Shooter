@@ -133,6 +133,10 @@ public class Zombie : Entity
 
             target.GetComponent<IDamagable>().OnDamage(10, Vector3.zero, Vector3.zero);
         }
+
+        var lookAt = target.position;
+        lookAt.y = transform.position.y;
+        transform.LookAt(lookAt);
     }
 
     public override void OnDamage(int damage, Vector3 hitPos, Vector3 hitNormal)

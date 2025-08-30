@@ -6,19 +6,23 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Slider healthBar;
-
+    [Space]
     [SerializeField] private GameObject effectUi;
     [SerializeField] private GameObject pauseUi;
     [SerializeField] private GameObject gameOverUi;
-
+    [Space]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gameOverText;
+
+    private Animator scoreAnimator;
 
 
     private void Start()
     {
         SetActivePauseUI(false);
         SetActiveGameOverUI(false);
+
+        scoreAnimator = scoreText.transform.GetComponent<Animator>();
     }
 
     public void SetHealthBarValue(float amount)
@@ -33,6 +37,7 @@ public class UIManager : MonoBehaviour
 
     public void SetScoreText(int score)
     {
+        scoreAnimator.SetTrigger("Add");
         scoreText.text = $"SCORE: {score:N0}";
     }
 

@@ -20,7 +20,6 @@ public static class AnimParams
     public static readonly int DieHash = Animator.StringToHash("Death");
 }
 
-
 public static class AudioMixerParams
 {
     public static readonly string Bgm = "musicVol";
