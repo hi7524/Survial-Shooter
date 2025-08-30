@@ -45,5 +45,12 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
+        uiManager.SetScoreText(score);
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("게임 종료");
+        Application.Quit();
     }
 }

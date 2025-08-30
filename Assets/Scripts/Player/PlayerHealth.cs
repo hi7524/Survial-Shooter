@@ -2,9 +2,17 @@
 
 public class PlayerHealth : Entity 
 {
+    [SerializeField] private AudioClip hurtClip;
     [Space()]
     [SerializeField] private UIManager uiManager;
 
+    private AudioSource audioSource;
+
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     protected override void OnEnable()
     {
@@ -24,6 +32,7 @@ public class PlayerHealth : Entity
         base.OnDamage(damage, hitPos, hitNormal);
 
         uiManager.SetHealthBarValue(health / maxHealth);
+        audioSource.PlayOneShot(hurtClip);
         uiManager.PlayDamagedEffect();
     }
 

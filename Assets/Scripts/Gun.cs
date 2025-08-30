@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private LayerMask targetLayers;
     [Space]
     [SerializeField] private ParticleSystem fireParticle;
+    [SerializeField] private Light fireLight;
     [SerializeField] private AudioClip fireClip;
 
     private float lastFiredTime;
@@ -78,6 +79,7 @@ public class Gun : MonoBehaviour
     private IEnumerator FireEffect(Vector3 hitPoint)
     {
         lineRenderer.enabled = true;
+        fireLight.enabled = true;
         lineRenderer.SetPosition(0, firePos.position);
         lineRenderer.SetPosition(1, hitPoint);
         audioSouce.PlayOneShot(fireClip);
@@ -85,5 +87,6 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
 
         lineRenderer.enabled = false;
+        fireLight.enabled = false;
     }
 }
