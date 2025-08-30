@@ -2090,7 +2090,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.34932902, y: 1.16224946e-10, z: -4.333057e-11, w: 0.93700016}
-  m_LocalPosition: {x: 0, y: 10.16, z: -10}
+  m_LocalPosition: {x: 0, y: 9.539667, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2538,7 +2538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243139052}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: -0.5222817, y: -0.47697696, z: 0.48452768, w: 0.5147308}
   m_LocalPosition: {x: -0.914, y: -0.007999986, z: 0.13599992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2546,7 +2546,7 @@ Transform:
   - {fileID: 1574945786}
   - {fileID: 1315184403}
   m_Father: {fileID: 945533756}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
+  m_LocalEulerAnglesHint: {x: -4.327, y: -90.033, z: 90.867}
 --- !u!1 &1243839482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,7 +3568,7 @@ Transform:
   m_GameObject: {fileID: 1579755914}
   serializedVersion: 2
   m_LocalRotation: {x: 0.34932902, y: 1.04669697e-10, z: -1.2336089e-11, w: 0.93700016}
-  m_LocalPosition: {x: 0, y: 10.16, z: -10}
+  m_LocalPosition: {x: 0, y: 9.539667, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3999,6 +3999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673621768}
   - component: {fileID: 1673621770}
+  - component: {fileID: 1673621771}
   m_Layer: 0
   m_Name: MonsterSpawner
   m_TagString: Untagged
@@ -4050,6 +4051,32 @@ MonoBehaviour:
   - {fileID: 247151785}
   - {fileID: 682564658}
   - {fileID: 1649072350}
+--- !u!114 &1673621771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673621767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d34910d3f4718d46b78afb965ae0370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 2089986582}
+  prefabSettings:
+  - type: 0
+    prefab: {fileID: 6330926554508041190, guid: ec5fa612aac9cf64d94f63aa3509d21c, type: 3}
+    initSize: 50
+    maxSize: 100
+  - type: 1
+    prefab: {fileID: 1573558356907998395, guid: 82410f813248a5040ac7e6a64a35ddf8, type: 3}
+    initSize: 50
+    maxSize: 100
+  - type: 2
+    prefab: {fileID: 6510391221681834776, guid: 0baff932f6cd4b64ba10384550b55417, type: 3}
+    initSize: 10
+    maxSize: 50
 --- !u!1 &1710709535
 GameObject:
   m_ObjectHideFlags: 0
@@ -4984,7 +5011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184242353578505876, guid: bd419c0e5c5bc6946ab14c302b1574ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: -0.12033272
       objectReference: {fileID: 0}
     - target: {fileID: 9184242353578505876, guid: bd419c0e5c5bc6946ab14c302b1574ee, type: 3}
       propertyPath: m_LocalPosition.z

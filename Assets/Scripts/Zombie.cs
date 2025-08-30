@@ -158,13 +158,17 @@ public class Zombie : Entity
     {
         capsuleCollider.enabled = false;
         agent.enabled = false;
-
-        Invoke("Return", 1f);
+        StartCoroutine(DelayedActiveFalse());
     }
 
-    // 풀로 반환하기 구현할 것
-    public void Return()
+    private IEnumerator DelayedActiveFalse()
     {
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
     }
 }

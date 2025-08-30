@@ -8,6 +8,7 @@ public class Entity : MonoBehaviour, IDamagable
     protected bool isDead;
 
     public event Action OnDeath;
+    public event Action DisableEvent;
 
 
     protected virtual void OnEnable()
@@ -36,8 +37,11 @@ public class Entity : MonoBehaviour, IDamagable
         }
     }
 
-    public void OnDamage(int damage, System.Numerics.Vector3 hitPos)
+    protected virtual void OnDisable()
     {
-        throw new NotImplementedException();
+        if (DisableEvent != null)
+        {
+            DisableEvent();
+        }
     }
 }
