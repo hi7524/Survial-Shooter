@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Zombie : Entity
 {
@@ -71,16 +70,17 @@ public class Zombie : Entity
         base.OnEnable();
 
         target = GameObject.FindGameObjectWithTag(Tags.Player).transform;
-        State = Status.Idle;
 
         capsuleCollider.enabled = true;
         agent.enabled = true;
+
+        State = Status.Idle;
     }
 
     private void Update()
     {
         switch (state)
-        {
+        { 
             case Status.Idle:
                 UpdateIdle();
                 break;
@@ -149,6 +149,8 @@ public class Zombie : Entity
         hitParticle.transform.position = hitPos;
         hitParticle.transform.forward = hitNormal;
         hitParticle.Play();
+
+        FloatingTextBus.Show(hitPos + hitNormal * 0.02f, damage, Color.red);
     }
 
     protected override void Die()

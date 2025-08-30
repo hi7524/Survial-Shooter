@@ -20,6 +20,7 @@ public class ZombiePoolSetting
 public class ZombiePool : MonoBehaviour
 {
     public GameManager gameManager;
+    public FloatingTextPool textPool;
 
     [SerializeField] private List<ZombiePoolSetting> prefabSettings;
 
