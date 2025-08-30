@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput input;
 
     private Camera cam;
+    private PlayerHealth health;
 
 
     public void Awake()
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        if (gameManager.IsPaused)
+        if (gameManager.IsPaused || gameManager.IsGameOver)
             return;
 
         Movement();

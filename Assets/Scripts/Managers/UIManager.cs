@@ -9,9 +9,17 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject effectUi;
     [SerializeField] private GameObject pauseUi;
+    [SerializeField] private GameObject gameOverUi;
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI gameOverText;
 
+
+    private void Start()
+    {
+        SetActivePauseUI(false);
+        SetActiveGameOverUI(false);
+    }
 
     public void SetHealthBarValue(float amount)
     {
@@ -36,7 +44,12 @@ public class UIManager : MonoBehaviour
     private IEnumerator DamagedEffect()
     {
         effectUi.SetActive(true);
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.2f);
         effectUi.SetActive(false);
+    }
+
+    public void SetActiveGameOverUI(bool active)
+    {
+        gameOverUi.SetActive(active);
     }
 }

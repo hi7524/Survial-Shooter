@@ -6,16 +6,12 @@ public class ZombieSpawner : MonoBehaviour
     [Space]
     [SerializeField] float spawnInterval = 1.0f;
     [SerializeField] Zombie[] zombiePrfs;
+    [SerializeField] Transform[] spawnTrans;
 
     private EnemyPool enemyPool;
 
     private float lastSpawnTime = 0f;
 
-
-    private void Start()
-    {
-        // enemyPool = GetComponent<EnemyPool>();
-    }
 
     private void Update()
     {
@@ -28,19 +24,14 @@ public class ZombieSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Vector3 spawnPos = Vector3.zero;
+        // 랜덤 위치 설정
+        int random = Random.Range(0, spawnTrans.Length);
+        Transform spawnPos = spawnTrans[random];
 
-        //GameObject enemy = enemyPool.GetFromPool("ZomBear");
-
-        //if (enemy != null)
-        //{
-        //    enemy.transform.position = spawnPos;
-        //    enemy.SetActive(true);
-        //}
-
+        // 랜덤 종류 설정
         int randomIdx = Random.Range(0, zombiePrfs.Length);
         Zombie obj = Instantiate(zombiePrfs[randomIdx]);
-        obj.transform.position = spawnPos;
+        obj.transform.position = spawnPos.position;
         obj.OnDeath += () => gameManager.AddScore(100);
     }
 }
