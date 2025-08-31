@@ -51,9 +51,8 @@ public class FloatingText : MonoBehaviour
     {
         if (isCritical)
         {
-
             textMesh.color = Color.red;
-            //animator.SetTrigger("Critical");
+            animator.SetTrigger("Critical");
         }
         else
         {
